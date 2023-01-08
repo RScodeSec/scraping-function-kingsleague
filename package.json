@@ -1,8 +1,8 @@
 {
   "name": "scraping",
   "version": "1.0.0",
-  "description": "open source",
-  "main": "main.js",
+  "description": "open source - kingsleague",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
