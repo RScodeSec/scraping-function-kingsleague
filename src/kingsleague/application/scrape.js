@@ -8,7 +8,7 @@ import {
 } from "./util.js";
 import { savetoJson } from "./file.js";
 import { cleanText, todayPlays } from "./helper.js";
-import { save } from "./../infrastructure/repository.js";
+import { save,closeConnection } from "./../infrastructure/repository.js";
 import {
   ClassificationModel,
   CalendarModel,
@@ -56,10 +56,12 @@ export async function scrapedClassificationStart(scrapedCalendar, date) {
   } else {
     console.log("no game today");
   }
+  await closeConnection();
 }
 
 export async function scrapedCalendarStart() {
   let scrapedResult = await scrapeCalendar();
   savetoJson(scrapedResult, "calendar");
   save(scrapedResult, CalendarModel);
+  await closeConnection();
 }
