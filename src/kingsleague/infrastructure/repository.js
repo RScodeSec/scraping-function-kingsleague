@@ -9,9 +9,8 @@ export async function save(data = [], T) {
   T.insertMany(data, (err, sus) => {
     if (err) throw err;
     console.log("successfully saved");
-  }).then(() => {
-    console.log("closing connection");
     mongoose.connection.close();
+    console.log("closing connection ");
   });
 }
 export async function closeConnection() {
