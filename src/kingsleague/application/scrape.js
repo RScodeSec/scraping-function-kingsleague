@@ -50,12 +50,12 @@ async function scrapeCalendar() {
 }
 
 export async function scrapedClassificationStart(scrapedCalendar, date) {
-  if (todayPlays(scrapedCalendar)) {
+  //if (todayPlays(scrapedCalendar)) {
     /* scrape classification table */
     save(await scrapeClassification(), ClassificationModel);
-  } else {
+  /*} else {
     console.log("no game today");
-  }
+  }*/
   await closeConnection();
 }
 
