@@ -23,7 +23,7 @@ jobs:
           MONGODB_HOST: ${{env.MONGODB_HOST}}
           
       - run: |
-          echo "Variable 1: ${{env.MONGODB_USERNAME}}"
+          echo "Variable 1: ${{MONGODB_USERNAME}}"
           npm install
           node index.js
           git config user.name anon-bot
