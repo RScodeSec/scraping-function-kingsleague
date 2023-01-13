@@ -1,0 +1,38 @@
+
+name: Scrape kingsleague
+
+env:
+  MONGODB_HOST: ${{secrets.MONGODB_HOST}}
+  MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
+  MONGODB_USERNAME: ${{secrets.MONGODB_USERNAME}}
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 23 * * 0"
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: a
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Envioroment Variable
+        uses: CallePuzzle/envvar-to-dotenv-action@v1.1.5
+        with: 
+          variableNames: MONGODB_HOST,MONGODB_PASSWORD,MONGODB_USERNAME
+          
+      - run: |
+          npm install
+          node index.js
+          git config user.name anon-bot
+          git add -A
+          git commit -m "[BOT] - database updated"
+          git push origin main
+          
+
