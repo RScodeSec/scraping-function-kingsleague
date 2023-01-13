@@ -1,0 +1,27 @@
+
+name: Scrape kingsleague
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 23 * * 0"
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: |
+          npm install
+          node index.js
+          git config user.name anon-bot
+          git add -A
+          git commit -m "[BOT] - database updated"
+          git push origin main
+          
+
