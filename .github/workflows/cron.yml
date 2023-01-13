@@ -16,6 +16,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          
+        env: 
+          MONGODB_USERNAME: ${{a.MONGODB_USERNAME}}
+          MONGODB_PASSWORD: ${{a.MONGODB_PASSWORD}}
+          MONGODB_HOST: ${{a.MONGODB_HOST}}
+          
       - run: |
           npm install
           node index.js
