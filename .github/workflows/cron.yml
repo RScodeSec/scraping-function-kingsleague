@@ -18,9 +18,9 @@ jobs:
           node-version: 18
           
         env: 
-          MONGODB_USERNAME: ${{a.MONGODB_USERNAME}}
-          MONGODB_PASSWORD: ${{a.MONGODB_PASSWORD}}
-          MONGODB_HOST: ${{a.MONGODB_HOST}}
+          MONGODB_USERNAME: ${{env.MONGODB_USERNAME}}
+          MONGODB_PASSWORD: ${{env.MONGODB_PASSWORD}}
+          MONGODB_HOST: ${{env.MONGODB_HOST}}
           
       - run: |
           npm install
