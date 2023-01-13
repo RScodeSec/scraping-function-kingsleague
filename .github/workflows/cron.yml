@@ -32,7 +32,7 @@ jobs:
           node index.js
           git config user.name anon-bot
           git add -A
-          git commit -m "[BOT] - database updated"
-          git push origin main
+          git commit -m "[BOT] - database updated" || echo "No changes to commit"
+          git push origin main || echo "No changes to commit"
           
 
