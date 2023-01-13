@@ -55,13 +55,12 @@ export async function scrapedClassificationStart(scrapedCalendar, date) {
     save(await scrapeClassification(), ClassificationModel);
   /*} else {
     console.log("no game today");
+    await closeConnection();
   }*/
-  await closeConnection();
 }
 
 export async function scrapedCalendarStart() {
   let scrapedResult = await scrapeCalendar();
   savetoJson(scrapedResult, "calendar");
   save(scrapedResult, CalendarModel);
-  await closeConnection();
 }
