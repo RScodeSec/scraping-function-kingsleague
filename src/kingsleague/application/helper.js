@@ -24,7 +24,7 @@ export function getDateNoWSpain() {
 
 export function todayPlays(scrapedCalendar) {
   const formattedDates = JSON.parse(scrapedCalendar).map((element) => {
-    element.date = element.date.toLowerCase().replace(/\s/g, "");
+    element.date = element.dateText.toLowerCase().replace(/\s/g, "");
     return element;
   });
   return formattedDates.includes(
@@ -34,7 +34,7 @@ export function todayPlays(scrapedCalendar) {
 
 export function lastDayScraped(calendar) {
   const arrCalendar = JSON.parse(calendar);
-  const localDate = arrCalendar[arrCalendar.length - 1].date.split("de");
+  const localDate = arrCalendar[arrCalendar.length - 1].dateText.split("de");
 
   const day = localDate[0].replace(/\s/g, "");
   const month = getMonthOfString(localDate[1].replace(/\s/g, ""));

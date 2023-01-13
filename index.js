@@ -8,9 +8,10 @@ exports.initializer = (context, callback) => {
 };
 */
 import {syncProcess} from './main.js'
-exports.handler = (event, context, callback) => {
+/*exports.handler = (event, context, callback) => {
   // const eventObj = JSON.parse(event.toString());
   console.log('hello world 1');
   syncProcess();
   callback(null, 'hello ');
-}
+}*/
+syncProcess();
