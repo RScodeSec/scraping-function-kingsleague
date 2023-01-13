@@ -19,7 +19,7 @@ jobs:
           node-version: 18
           
       - run: |
-          echo "Variable 1: ${{MONGODB_USERNAME}}"
+          echo "Variable 1: ${{env.MONGODB_USERNAME}}"
           npm install
           node index.js
           git config user.name anon-bot
